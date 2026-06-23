@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>RVC News Wall</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Segoe UI, Arial, sans-serif;
+    background:#0f172a;
+    color:#ffffff;
+    min-height:100vh;
+}
+
+.header{
+    background:#111827;
+    padding:20px 30px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-bottom:1px solid #1f2937;
+}
+
+.logo{
+    font-size:32px;
+    font-weight:700;
+}
+
+.subtitle{
+    color:#9ca3af;
+    font-size:14px;
+    margin-top:4px;
+}
+
+#clock{
+    font-size:22px;
+    font-weight:700;
+    letter-spacing:1px;
+    color:#f8fafc;
+}
+
+.container{
+    max-width:1400px;
+    margin:auto;
+    padding:50px 30px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:25px;
+}
+
+.card{
+    background:#111827;
+    border:1px solid #1f2937;
+    border-radius:16px;
+    padding:30px;
+    transition:all .3s ease;
+    cursor:pointer;
+    text-decoration:none;
+    color:white;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    border-color:#ef4444;
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.35),
+        0 0 25px rgba(239,68,68,.15);
+}
+
+.card:active{
+    transform:scale(0.98);
+}
+
+.channel{
+    font-size:28px;
+    font-weight:700;
+    margin-bottom:10px;
+}
+
+.description{
+    color:#9ca3af;
+    margin-bottom:20px;
+}
+
+.live{
+    display:inline-block;
+    background:#dc2626;
+    color:white;
+    padding:8px 14px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.info{
+    text-align:center;
+    margin-top:30px;
+    color:#94a3b8;
+    font-size:14px;
+}
+
+.footer{
+    text-align:center;
+    color:#6b7280;
+    padding:30px;
+}
+
+@media(max-width:768px){
+
+    .header{
+        flex-direction:column;
+        gap:15px;
+        text-align:center;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .channel{
+        font-size:22px;
+    }
+
+    #clock{
+        font-size:18px;
+    }
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+
+    <div>
+        <div class="logo">RVC News Wall</div>
+        <div class="subtitle">Central de Notícias ao Vivo</div>
+    </div>
+
+    <div id="clock"></div>
+
+</div>
+
+<div class="container">
+
+    <div class="grid">
+
+        <a class="card"
+           href="https://www.youtube.com/@JovemPanNews/live"
+           target="_blank">
+
+            <div class="channel">JP News</div>
+
+            <div class="description">
+                Jovem Pan News ao vivo
+            </div>
+
+            <span class="live">AO VIVO</span>
+
+        </a>
+
+        <a class="card"
+           href="https://www.youtube.com/@revistaoeste/live"
+           target="_blank">
+
+            <div class="channel">Oeste TV</div>
+
+            <div class="description">
+                Revista Oeste ao vivo
+            </div>
+
+            <span class="live">AO VIVO</span>
+
+        </a>
+
+        <a class="card"
+           href="https://www.youtube.com/@cnnbrasil/live"
+           target="_blank">
+
+            <div class="channel">CNN Brasil</div>
+
+            <div class="description">
+                CNN Brasil ao vivo
+            </div>
+
+            <span class="live">AO VIVO</span>
+
+        </a>
+
+        <a class="card"
+           href="https://www.youtube.com/@sbtnews/live"
+           target="_blank">
+
+            <div class="channel">SBT News</div>
+
+            <div class="description">
+                SBT News ao vivo
+            </div>
+
+            <span class="live">AO VIVO</span>
+
+        </a>
+
+    </div>
+
+    <div class="info">
+        Clique em um canal para abrir a transmissão ao vivo em uma nova aba.
+    </div>
+
+</div>
+
+<div class="footer">
+    © 2026 RVC TECH • News Wall
+</div>
+
+<script>
+
+function atualizarRelogio(){
+
+    const agora = new Date();
+
+    const opcoes = {
+        timeZone: 'America/Sao_Paulo',
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+    };
+
+    document.getElementById('clock').innerHTML =
+        agora.toLocaleString('pt-BR', opcoes);
+}
+
+setInterval(atualizarRelogio, 1000);
+atualizarRelogio();
+
+</script>
+
+</body>
+</html>
